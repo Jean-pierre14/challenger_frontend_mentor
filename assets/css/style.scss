@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600&display=swap');
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(233, 47%, 7%);
+}
+
+.container {
+    position: relative;
+    max-width: 1440px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .grid-2 {
+        h1 {
+            color: hsl(0, 0%, 100%);
+            font-family: Inter;
+            font-weight: 400, 700;
+        }
+        .stat {
+            font-size: 15px;
+        }
+        p {
+            color: hsla(0, 0%, 100%, 0.75);
+            font-family: 'Lexend Deca';
+            font-weight: 400;
+        }
+        span {
+            color: hsl(277, 64%, 61%);
+        }
+        position: relative;
+        width: 70%;
+        border-radius: 15px;
+        display: grid;
+        grid-template-columns: repeat(2,
+        1fr);
+        overflow: hidden;
+        &>div {
+            width: 100%;
+            height: 350px;
+        }
+        .element:nth-child(1) {
+            position: relative;
+            background-color: hsl(244, 38%, 16%);
+            padding: 4rem;
+            .flex {
+                display: flex;
+                margin-top: 20px;
+                justify-content: space-between;
+            }
+        }
+        .element img {
+            position: relative;
+            width: 100%;
+        }
+    }
+}
+
+.mt-20 {
+    margin-top: 40px;
+}
