@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600&display=swap");
 *,
 *::after,
 *::before {
@@ -7,61 +6,124 @@
   box-sizing: border-box;
 }
 
+:root {
+  --white: hsl(0, 0%, 100%);
+  --bg: hsl(233, 47%, 7%);
+  --pColor: hsla(0, 0%, 100%, 0.75);
+  --cardBg: hsl(244, 38%, 16%);
+  --spanColor: hsl(277, 64%, 61%);
+  --primary: hsl(10%, 20%, 30%);
+  --accent: hsl(277, 64%, 61%);
+}
+
 body {
-  background-color: hsl(233deg, 47%, 7%);
+  background-color: var(--bg);
+  font-size: 15px;
+}
+
+h1,
+h2 {
+  color: var(--white);
+  font-family: Inter;
+}
+
+span {
+  color: var(--spanColor);
+}
+
+p {
+  color: var(--pColor);
+  font-family: Inter;
+  font-weight: 400;
 }
 
 .container {
   position: relative;
-  max-width: 1440px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 .container .grid-2 {
   position: relative;
   width: 70%;
-  border-radius: 15px;
+  margin: 100px auto;
+  overflow: hidden;
+  background-color: var(--cardBg);
+  border-radius: 0.4rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  overflow: hidden;
 }
-.container .grid-2 h1 {
-  color: hsl(0deg, 0%, 100%);
-  font-family: Inter;
-  font-weight: 400, 700;
+.container .grid-2 > div:first-child {
+  padding: 50px;
 }
-.container .grid-2 .stat {
-  font-size: 15px;
-}
-.container .grid-2 p {
-  color: hsla(0deg, 0%, 100%, 0.75);
-  font-family: "Lexend Deca";
-  font-weight: 400;
-}
-.container .grid-2 span {
-  color: hsl(277deg, 64%, 61%);
-}
-.container .grid-2 > div {
-  width: 100%;
-  height: 350px;
-}
-.container .grid-2 .element:nth-child(1) {
+.container .grid-2 > div:first-child .flex {
   position: relative;
-  background-color: hsl(244deg, 38%, 16%);
-  padding: 4rem;
-}
-.container .grid-2 .element:nth-child(1) .flex {
+  margin: 50px 0 0 0;
   display: flex;
-  margin-top: 20px;
   justify-content: space-between;
+  padding: 0 20px 0 0;
+}
+.container .grid-2 > div:first-child .flex p {
+  font-size: 13px;
+  font-weight: 200;
+}
+.container .grid-2 .element h1 {
+  margin: 0 0 20px;
 }
 .container .grid-2 .element img {
   position: relative;
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-
-.mt-20 {
-  margin-top: 40px;
+.container .grid-2 .color {
+  position: relative;
+}
+.container .grid-2 .color::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  opacity: 0.5;
+  background: var(--accent);
+}
+@media (max-width: 760px) {
+  .container {
+    position: relative;
+    display: block;
+  }
+  .container .grid-2 {
+    width: 70%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .container .grid-2 > div {
+    width: 100%;
+  }
+  .container .grid-2 > div img {
+    width: 100%;
+  }
+  .container .grid-2 > div:nth-child(1) {
+    padding: 30px 20px;
+  }
+  .container .grid-2 > div:nth-child(1) .p {
+    margin: 0 0 20px 0;
+  }
+  .container .grid-2 > div:nth-child(1) .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .container .grid-2 > div:nth-child(1) .flex div {
+    text-align: center;
+    margin: 0 0 15px 0;
+  }
+  .container .grid-2 > div:nth-child(1) .flex div p {
+    font-size: 15px;
+    font-weight: 300;
+  }
 }/*# sourceMappingURL=style.css.map */

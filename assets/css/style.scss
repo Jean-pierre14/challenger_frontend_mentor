@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600&display=swap');
 *,
 *::after,
 *::before {
@@ -7,62 +7,125 @@
     box-sizing: border-box;
 }
 
+:root {
+    --white: hsl(0, 0%, 100%);
+    --bg: hsl(233, 47%, 7%);
+    --pColor: hsla(0, 0%, 100%, 0.75);
+    --cardBg: hsl(244, 38%, 16%);
+    --spanColor: hsl(277, 64%, 61%);
+    --primary: hsl(10%, 20%, 30%);
+    --accent: hsl(277, 64%, 61%);
+}
+
 body {
-    background-color: hsl(233, 47%, 7%);
+    background-color: var(--bg);
+    font-size: 15px;
+}
+
+h1,
+h2 {
+    color: var(--white);
+    font-family: Inter;
+}
+
+span {
+    color: var(--spanColor);
+}
+
+p {
+    color: var(--pColor);
+    font-family: Inter;
+    font-weight: 400;
 }
 
 .container {
     position: relative;
-    max-width: 1440px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     .grid-2 {
-        h1 {
-            color: hsl(0, 0%, 100%);
-            font-family: Inter;
-            font-weight: 400, 700;
-        }
-        .stat {
-            font-size: 15px;
-        }
-        p {
-            color: hsla(0, 0%, 100%, 0.75);
-            font-family: 'Lexend Deca';
-            font-weight: 400;
-        }
-        span {
-            color: hsl(277, 64%, 61%);
-        }
         position: relative;
         width: 70%;
-        border-radius: 15px;
-        display: grid;
-        grid-template-columns: repeat(2,
-        1fr);
+        margin: 100px auto;
         overflow: hidden;
-        &>div {
-            width: 100%;
-            height: 350px;
-        }
-        .element:nth-child(1) {
-            position: relative;
-            background-color: hsl(244, 38%, 16%);
-            padding: 4rem;
+        background-color: var(--cardBg);
+        border-radius: .4rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        &>div:first-child {
+            padding: 50px;
             .flex {
+                position: relative;
+                margin: 50px 0 0 0;
                 display: flex;
-                margin-top: 20px;
                 justify-content: space-between;
+                padding: 0 20px 0 0;
+                p {
+                    font-size: 13px;
+                    font-weight: 200;
+                }
             }
         }
-        .element img {
+        .element {
+            h1 {
+                margin: 0 0 20px;
+            }
+            img {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .color {
             position: relative;
-            width: 100%;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+                opacity: 0.5;
+                background: var(--accent);
+            }
         }
     }
-}
-
-.mt-20 {
-    margin-top: 40px;
+    @media(max-width: 760px) {
+        & {
+            position: relative;
+            display: block;
+            .grid-2 {
+                width: 70%;
+                display: flex;
+                flex-direction: column-reverse;
+                &>div {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                    &:nth-child(1) {
+                        padding: 30px 20px;
+                        .p {
+                            margin: 0 0 20px 0;
+                        }
+                        .flex {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            align-content: center;
+                            div {
+                                text-align: center;
+                                margin: 0 0 15px 0;
+                                p {
+                                    font-size: 15px;
+                                    font-weight: 300;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
